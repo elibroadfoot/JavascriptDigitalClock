@@ -1,21 +1,44 @@
+var today = new Date();
+var previousTime;
+
 function startTime() {
-	var today = new Date();
+	previousTime = today;
+	today = new Date();
 	var h = today.getHours();
-	var m = today.getMinutes().toString();
-	var s = today.getSeconds().toString();
+	var m = today.getMinutes();
+	var s = today.getSeconds();
 	var ms = today.getMilliseconds().toString().slice(0, 2);
-	var ampm = (' PM ');
-	if (h < 12) {ampm = (' AM ')};
-    if (h > 12) {h -= 12};
+	var ampm = (' PM');
+	  if (h < 12) {ampm = (' AM')};
+      if (h > 12) {h -= 12};
 	h = checkTime (h);
-	m = checkTime (m);
+	var mString = checkTime (m);
 	s = checkTime (s);
 	ms = checkTime (ms);
 	ampm = checkTime (ampm);
-	document.getElementById('clock').innerHTML = h + ":" + m + ":" + s + ":" + ms + ampm;
-	var t = setTimeout(startTime, 1);
+	document.getElementById('clock').innerHTML = h + ":" + mString + ":" + s + ":" + ms + ampm;
+
+	if (previousTime.getMinutes() != m) {
+		var randomColor = getRandomColor();
+		document.getElementById('clock').style.color = randomColor;
+	}
 }
 function checkTime(i) {
-	if (i < 10) {i = "0" + i};
+	if (i < 10) {
+		i = "0" + i
+	};
 	return i;
 }
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+function changeBackgroundColor() {
+
+}
+var t = setInterval(startTime, 1);

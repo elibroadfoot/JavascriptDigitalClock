@@ -3,10 +3,12 @@ function startTime() {
 	var h = today.getHours();
 	var m = today.getMinutes();
 	var s = today.getSeconds();
+	var ms = today.getMilliseconds();
 	m = checkTime (m);
 	s = checkTime (s);
-	document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
-	var t = setTimeout(startTime, 500);
+	ms = checkTime (ms);
+	document.getElementById('clock').innerHTML = h + ":" + m + ":" + s + ":" + ms;
+	var t = setTimeout(startTime, 1);
 }
 function checkTime(i) {
 	if (i < 10) {i = "0" + i};

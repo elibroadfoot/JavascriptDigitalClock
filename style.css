@@ -1,0 +1,12 @@
+#clock {
+	font: bold 50px 'Anonymous Pro', monospace;
+	color: #ffff00;
+	background: #660066;
+	border: 5px solid #ffff00;
+	box-shadow: 0 0 0 5px #660066;
+	text-align: center;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
+}

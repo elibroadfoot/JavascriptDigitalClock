@@ -20,7 +20,7 @@ function startTime() {
 
 	if (previousTime.getMinutes() != m) {
 		var randomColor = getRandomColor();
-		document.getElementById('clock').style.color = randomColor;
+		document.getElementById('clock').style.backgroundColor = randomColor;
 	}
 }
 function checkTime(i) {
